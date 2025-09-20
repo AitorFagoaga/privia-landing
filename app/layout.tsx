@@ -13,8 +13,8 @@ const instrumentSerif = Instrument_Serif({
 })
 
 export const metadata: Metadata = {
-  title: "Heritage Roots - American Farming Newsletter",
-  description: "Restoring heritage American farming traditions through stories, wisdom, and community.",
+  title: "Privia - Software Exclusivo para Comunidades Premium",
+  description: "La experiencia tecnológica que las comunidades más exclusivas de Punta del Este merecen. Soluciones de software diseñadas para la excelencia.",
   generator: "v0.app",
 }
 
