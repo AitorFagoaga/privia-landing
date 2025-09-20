@@ -86,6 +86,49 @@ export default function PriviaLandingPage() {
             </div>
           </div>
         </div>
+
+        {/* Scroll Down Arrow */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 animate-fade-in-up animate-delay-600">
+          <div className="flex flex-col items-center cursor-pointer group" onClick={() => {
+            document.querySelector('section')?.scrollIntoView({ behavior: 'smooth' })
+          }}>
+            <div className="relative">
+              {/* Liquid glass background with pulse effect */}
+              <div className="w-14 h-14 rounded-full bg-white/8 backdrop-blur-xl border border-white/20 flex items-center justify-center group-hover:bg-white/15 group-hover:border-white/30 transition-all duration-500 group-hover:scale-110 shadow-[0_8px_32px_rgba(31,32,41,0.2),inset_0_1px_0_rgba(255,255,255,0.1)] animate-liquid-pulse">
+                {/* Inner glow effect */}
+                <div className="absolute inset-1 rounded-full bg-gradient-to-b from-white/10 to-transparent pointer-events-none"></div>
+                
+                {/* Arrow icon */}
+                <svg 
+                  className="w-6 h-6 text-white/90 animate-gentle-bounce relative z-10" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24" 
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={1.5} 
+                    d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                  />
+                </svg>
+              </div>
+              
+              {/* Floating particles effect */}
+              <div className="absolute -top-1 -left-1 w-2 h-2 rounded-full bg-white/30 animate-float opacity-60"></div>
+              <div className="absolute -bottom-2 -right-1 w-1.5 h-1.5 rounded-full bg-[#F5A35B]/40 animate-float" style={{animationDelay: '1s'}}></div>
+            </div>
+            
+            {/* Elegant line indicator */}
+            <div className="mt-3 h-12 w-px bg-gradient-to-b from-white/50 via-white/20 to-transparent"></div>
+            
+            {/* Subtle text hint */}
+            <p className="mt-2 text-white/60 text-xs font-light tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              EXPLORAR
+            </p>
+          </div>
+        </div>
       </main>
 
       {/* Values Section */}
