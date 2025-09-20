@@ -53,7 +53,7 @@ export default function PriviaLandingPage() {
             <div className="max-w-lg mx-auto">
               <div className="opacity-0 animate-fade-in-up animate-delay-200 mb-12 mt-8">
                 <p className="text-white/90 text-lg font-light tracking-wide leading-relaxed">
-                  Software exclusivo para las comunidades<br/>más distinguidas de Punta del Este
+                  Servicio exclusivo para las comunidades<br/>más distinguidas de Punta del Este
                 </p>
               </div>
 
@@ -63,13 +63,13 @@ export default function PriviaLandingPage() {
                     <div className="flex justify-center p-1 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 shadow-[0_8px_32px_rgba(31,32,41,0.3),0_2px_8px_rgba(0,0,0,0.1)] relative hover:bg-white/15 hover:border-white/30 transition-all duration-500 ease-out hover:scale-[1.02]">
                       <Button
                         onClick={handleDemoRequest}
-                        className="bg-transparent text-white hover:bg-[#F5A35B] hover:text-[#1F2029] rounded-full px-12 py-3 transition-all duration-300 font-medium hover:shadow-[0_6px_20px_rgba(245,163,91,0.4)] text-base w-full border-0"
+                        className="bg-transparent text-white hover:bg-transparent hover:text-[#ffffff] rounded-full px-12 py-3 transition-all duration-300 font-medium hover:shadow-[0_6px_20px_rgba(245,163,91,0.4)] text-base w-full border-0"
                       >
-                        Solicitar Demostración Privada
+                        Solicitar Demostración
                       </Button>
                     </div>
                     <p className="text-sm text-white/70 mt-6 font-light tracking-wide">
-                      Experiencias tecnológicas que reflejan su estilo de vida
+                      Experiencias que reflejan su estilo de vida
                     </p>
                   </div>
                 ) : (
@@ -153,7 +153,7 @@ export default function PriviaLandingPage() {
       </section> */}
 
       {/* Footer */}
-      <footer className="bg-gradient-to-br from-[#F5A35B] to-[#F5A35B]/95 py-16 border-t border-gray-100">
+      <footer className="bg-gradient-to-br from-[#1F2029] to-[#1F2029]/95 py-16 border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-4 mb-8 md:mb-0">
@@ -162,21 +162,21 @@ export default function PriviaLandingPage() {
                 alt="Privia Logo" 
                 className="w-8 h-8"
               />
-              <span className="font-serif text-2xl text-[#1F2029] font-light">Privia</span>
+              <span className="font-serif text-2xl text-[#ffffff] font-light">Privia</span>
             </div>
             
             <div className="text-center md:text-right">
-              <p className="text-[#1F2029]/70 text-sm mb-2">
-                Software exclusivo para comunidades distinguidas
+              <p className="text-[#ffffff]/70 text-sm mb-2">
+                Servicio exclusivo para comunidades distinguidas
               </p>
-              <p className="text-[#1F2029]/50 text-xs">
+              <p className="text-[#ffffff]/50 text-xs">
                 Punta del Este, Uruguay | {new Date().getFullYear()}
               </p>
             </div>
           </div>
           
           <div className="mt-12 pt-8 border-t border-gray-100 text-center">
-            <p className="text-[#1F2029]/40 text-xs">
+            <p className="text-[#ffffff]/40 text-xs">
               © {new Date().getFullYear()} Privia. Todos los derechos reservados. 
               Diseñado para la excelencia.
             </p>
