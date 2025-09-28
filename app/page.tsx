@@ -337,9 +337,6 @@ export default function PriviaLandingPage() {
                   <p className="text-slate-600 leading-relaxed font-light text-lg mb-6">
                     Nuestros clientes no envían 'tickets de soporte'. Tienen un socio estratégico dedicado que entiende sus operaciones. Brindamos implementación proactiva, monitoreo constante y nos anticipamos a sus necesidades. Somos una extensión de su equipo de gestión, no un proveedor externo.
                   </p>
-                  <div className="text-slate-500 text-sm font-light italic">
-                    "Lujo que piensa por usted"
-                  </div>
                 </div>
               </div>
             </div>
@@ -458,7 +455,7 @@ export default function PriviaLandingPage() {
           <div className="text-center mb-20">
             <div className="w-16 h-px bg-[#F5A35B] mx-auto mb-8"></div>
             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white mb-8 font-light tracking-tight">
-              No somos para todos. Y eso es intencional.
+              No somos para todos.
             </h2>
             <p className="text-white/70 text-lg md:text-2xl font-light leading-relaxed max-w-4xl mx-auto mb-12">
               Seleccionamos cuidadosamente a las comunidades con las que nos asociamos. Buscamos administraciones con una visión a largo plazo, que entiendan que invertir en la experiencia del residente es la estrategia de crecimiento más inteligente.
@@ -468,6 +465,11 @@ export default function PriviaLandingPage() {
           {/* Call to Action */}
           <div className="text-center mb-16">
             <div className="max-w-4xl mx-auto">
+              <div className="flex items-center justify-center mb-8">
+                <div className="w-2 h-2 bg-[#F5A35B] rounded-full opacity-40"></div>
+                <div className="w-16 h-px bg-[#F5A35B] opacity-30 mx-4"></div>
+                <div className="w-2 h-2 bg-[#F5A35B] rounded-full opacity-40"></div>
+              </div>
               <p className="text-white/70 text-xl md:text-2xl font-light leading-relaxed mb-12 italic">
                 "Si su comunidad comparte nuestra obsesión por la excelencia y está lista para explorar cómo un socio tecnológico puede desbloquear un nuevo nivel de prestigio y eficiencia, nos gustaría conversar."
               </p>
@@ -476,13 +478,30 @@ export default function PriviaLandingPage() {
                 <Button
                   className="bg-transparent border border-[#F5A35B] text-[#F5A35B] hover:bg-[#F5A35B] hover:text-white px-12 py-4 text-base font-light tracking-[0.2em] transition-all duration-300 rounded-none uppercase"
                 >
-                  Iniciar la Conversación
+                  Solicitar Consulta
                 </Button>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Partnership Bridge */}
+      <div className="relative h-32 bg-gradient-to-b from-slate-900 via-slate-700 to-slate-50 overflow-hidden">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="flex items-center space-x-4">
+            <div className="w-12 h-px bg-[#F5A35B] opacity-60"></div>
+            <div className="w-3 h-3 bg-[#F5A35B] rounded-full opacity-80"></div>
+            <div className="w-12 h-px bg-[#F5A35B] opacity-60"></div>
+          </div>
+        </div>
+        {/* Subtle connecting text */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <p className="text-white/40 text-sm font-light italic mt-8">
+            Para comunidades que merecen lo extraordinario
+          </p>
+        </div>
+      </div>
 
       {/* Beyond Expectations Section */}
       <section className="py-32 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden">
@@ -496,12 +515,17 @@ export default function PriviaLandingPage() {
         
         <div className="max-w-5xl mx-auto px-4 relative">
           <div className="text-center mb-20">
-            <div className="w-16 h-px bg-[#F5A35B] mx-auto mb-8"></div>
+            {/* Echoing the partnership theme with subtle connecting elements */}
+            <div className="flex items-center justify-center mb-8">
+              <div className="w-6 h-px bg-[#F5A35B] opacity-40"></div>
+              <div className="w-16 h-px bg-[#F5A35B] mx-2"></div>
+              <div className="w-6 h-px bg-[#F5A35B] opacity-40"></div>
+            </div>
             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-slate-900 mb-8 font-light tracking-tight">
               Su comunidad merece un sistema operativo a su altura.
             </h2>
             <p className="text-slate-600 text-xl md:text-2xl font-light leading-relaxed max-w-4xl mx-auto">
-              Deje de luchar con herramientas genéricas. Necesita una plataforma que entienda el significado de la excelencia.
+              Las comunidades que elegimos merecen más que herramientas genéricas. Merecen una plataforma que entienda el significado de la excelencia y se adapte a su estándar único.
             </p>
           </div>
 
@@ -518,8 +542,8 @@ export default function PriviaLandingPage() {
             </div>
 
             <div className="text-center space-y-6">
-              <div className="w-16 h-16 mx-auto bg-gradient-to-br from-[#1F2029]/10 to-[#1F2029]/20 border border-[#1F2029]/30 flex items-center justify-center shadow-sm">
-                <div className="w-2 h-2 bg-[#1F2029] rounded-full"></div>
+             <div className="w-16 h-16 mx-auto bg-gradient-to-br from-[#F5A35B]/10 to-[#F5A35B]/20 border border-[#F5A35B]/30 flex items-center justify-center shadow-sm">
+                <div className="w-2 h-2 bg-[#F5A35B] rounded-full"></div>
               </div>
               <div>
                 <h5 className="text-lg font-serif text-slate-800 font-light mb-3">Demo Personalizada</h5>
