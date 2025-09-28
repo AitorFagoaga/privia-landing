@@ -16,24 +16,26 @@ export default function PriviaLandingPage() {
 
   useEffect(() => {
     // Intersection Observer for scroll animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
+    if (typeof window !== 'undefined') {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in-up')
+          }
+        })
+      }, observerOptions)
+
+      // Observe all elements with animation classes
+      const animatedElements = document.querySelectorAll('.animate-on-scroll')
+      animatedElements.forEach((el) => observer.observe(el))
+
+      return () => observer.disconnect()
     }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-fade-in-up')
-        }
-      })
-    }, observerOptions)
-
-    // Observe all elements with animation classes
-    const animatedElements = document.querySelectorAll('.animate-on-scroll')
-    animatedElements.forEach((el) => observer.observe(el))
-
-    return () => observer.disconnect()
   }, [])
 
   const handleDemoRequest = () => {
@@ -47,7 +49,7 @@ export default function PriviaLandingPage() {
       <div className="fixed top-0 left-0 right-0 z-[60] h-1 bg-white/10">
         <div 
           className="h-full bg-[#F5A35B] transition-all duration-300 ease-out"
-          style={{ width: `${(scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100}%` }}
+          style={{ width: typeof window !== 'undefined' ? `${(scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100}%` : '0%' }}
         />
       </div>
 
@@ -106,7 +108,7 @@ export default function PriviaLandingPage() {
             backgroundImage: "url(/images/portada_landing_pv.jpg)",
             transform: `translateY(${scrollY * 0.5}px)`,
           }}
-        >
+      >
           <div className="absolute inset-0 bg-gradient-to-b from-blue-900/70 via-blue-800/55 to-slate-900/80" />
         </div>
 
@@ -169,7 +171,9 @@ export default function PriviaLandingPage() {
         {/* Scroll Down Arrow */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 animate-fade-in-up animate-delay-600">
           <div className="flex flex-col items-center cursor-pointer group" onClick={() => {
-            document.querySelector('section')?.scrollIntoView({ behavior: 'smooth' })
+            if (typeof window !== 'undefined') {
+              document.querySelector('section')?.scrollIntoView({ behavior: 'smooth' })
+            }
           }}>
             <div className="relative">
               {/* Liquid glass background with pulse effect */}
