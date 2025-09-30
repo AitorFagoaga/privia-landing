@@ -1,0 +1,40 @@
+# Robots.txt for Privia - Sistema Operativo para Barrios Privados y Country Clubs
+
+User-agent: *
+Allow: /
+
+# Important pages for indexing
+Allow: /#inicio
+Allow: /#servicios
+Allow: /#nosotros
+Allow: /#contacto
+
+# Sitemap location
+Sitemap: https://privia.com/sitemap.xml
+
+# Block access to sensitive areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.env
+Disallow: /api/
+
+# Allow all image and CSS files for proper rendering
+Allow: /images/
+Allow: /_next/static/
+Allow: /favicon.ico
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
+
+# Additional directives for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
