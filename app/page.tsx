@@ -61,7 +61,7 @@ export default function PriviaLandingPage() {
             <div className="flex items-center space-x-3">
               <img 
                 src="/images/PriviaIndividualFinal.svg" 
-                alt="Privia Logo" 
+                alt="Privia - Sistema Operativo para Barrios Privados y Country Clubs de Lujo" 
                 className="w-8 h-8 sm:w-10 sm:h-10 filter drop-shadow-lg"
               />
               <div className="text-white font-serif text-xl font-light tracking-wider">
@@ -100,7 +100,7 @@ export default function PriviaLandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <main className="min-h-screen relative overflow-hidden pt-16">
+      <main className="min-h-screen relative overflow-hidden pt-16" role="main" id="inicio">
         {/* Background Image with Overlay */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-slow-pan"
@@ -108,6 +108,8 @@ export default function PriviaLandingPage() {
             backgroundImage: "url(/images/portada_landing_pv.jpg)",
             transform: `translateY(${scrollY * 0.5}px)`,
           }}
+          role="img"
+          aria-label="Vista elegante de comunidad exclusiva de lujo - Privia Country Club"
       >
           <div className="absolute inset-0 bg-gradient-to-b from-blue-900/70 via-blue-800/55 to-slate-900/80" />
         </div>
@@ -127,14 +129,14 @@ export default function PriviaLandingPage() {
               <div className="opacity-0 animate-fade-in-up mb-16">
                 <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white font-light tracking-tight leading-[1.1] mb-6">
                   El Sistema Operativo de la  <br/>
-                  <span className="text-[#F5A35B] font-medium"> Experiencia Residencial.</span>
+                  <span className="text-[#F5A35B] font-medium"> Experiencia Residencial de Lujo.</span>
                 </h1>
                 <div className="w-24 h-px bg-[#F5A35B] mx-auto opacity-60"></div>
               </div>
 
               <div className="opacity-0 animate-fade-in-up animate-delay-200 mb-16 max-w-3xl mx-auto">
                 <p className="text-white/80 text-xl md:text-2xl font-light tracking-wide leading-relaxed text-center">
-                  Privia es el sistema operativo que potencia a las comunidades de lujo, automatizando lo complejo para que solo quede la excelencia.
+                  Privia es el sistema operativo que potencia a los barrios privados y country clubs más exclusivos, automatizando lo complejo para que solo quede la excelencia y seguridad.
                 </p>
               </div>
 
@@ -227,10 +229,10 @@ export default function PriviaLandingPage() {
           <div className="text-center mb-20">
             <div className="w-16 h-px bg-[#F5A35B] mx-auto mb-8"></div>
             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white mb-8 font-light tracking-tight">
-             Diseñado a medida
+             Diseñado a medida para Country Clubs
             </h2>
             <p className="text-white/70 text-lg md:text-2xl font-light leading-relaxed max-w-3xl mx-auto">
-              Las comunidades de élite enfrentan un desafío único: gestionar operaciones complejas sin comprometer una experiencia de lujo para los residentes. Las soluciones genéricas fallan porque no entienden su estándar.
+              Los barrios privados y country clubs de élite enfrentan un desafío único: gestionar operaciones complejas sin comprometer una experiencia de lujo y seguridad para los residentes. Las soluciones genéricas fallan porque no entienden su estándar de exclusividad.
             </p>
           </div>
           {/* Principles */}
@@ -271,10 +273,10 @@ export default function PriviaLandingPage() {
             <div className="w-16 h-px bg-[#F5A35B] mx-auto mb-8"></div>
             <div className="max-w-4xl mx-auto">
               <h3 className="font-serif text-3xl md:text-4xl text-white mb-8 font-light tracking-tight">
-                <span className="text-[#F5A35B]">Nuestra Solución:</span> Privia no es un software, es su socio operativo.
+                <span className="text-[#F5A35B]">Nuestra Solución:</span> Privia no es un software, es su socio operativo para barrios privados de lujo.
               </h3>
               <p className="text-white/70 text-lg md:text-xl leading-relaxed font-light">
-                Creamos una plataforma centralizada que se adapta a las reglas y la identidad de su comunidad, eliminando la fricción para todos.
+                Creamos una plataforma centralizada que se adapta a las reglas y la identidad de su comunidad exclusiva, eliminando la fricción para todos y maximizando la seguridad.
               </p>
             </div>
           </div>
@@ -584,7 +586,7 @@ export default function PriviaLandingPage() {
               <div className="flex items-center space-x-4 mb-6">
                 <img 
                   src="/images/PriviaIndividualFinal.svg" 
-                  alt="Privia Logo" 
+                  alt="Privia - Tecnología Premium para Country Clubs y Barrios Privados" 
                   className="w-12 h-12 filter drop-shadow-lg"
                 />
                 <span className="font-serif text-3xl text-white font-light">Privia</span>
