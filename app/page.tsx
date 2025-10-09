@@ -128,15 +128,15 @@ export default function PriviaLandingPage() {
             <div className="max-w-6xl mx-auto">
               <div className="opacity-0 animate-fade-in-up mb-16">
                 <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white font-light tracking-tight leading-[1.1] mb-6">
-                  El Sistema Operativo de la  <br/>
-                  <span className="text-[#F5A35B] font-medium"> Experiencia Residencial de Lujo.</span>
+                   El Sistema Operativo para<br/>
+                  <span className="text-[#F5A35B] font-medium"> Comunidades Residenciales de Lujo</span>
                 </h1>
                 <div className="w-24 h-px bg-[#F5A35B] mx-auto opacity-60"></div>
               </div>
 
               <div className="opacity-0 animate-fade-in-up animate-delay-200 mb-16 max-w-3xl mx-auto">
                 <p className="text-white/80 text-xl md:text-2xl font-light tracking-wide leading-relaxed text-center">
-                  Privia es el sistema operativo que potencia a los barrios privados y country clubs más exclusivos, automatizando lo complejo para que solo quede la excelencia y seguridad.
+                  Integramos los pilares operativos—accesos, amenities, comunicación—en una única plataforma que se amolda a sus reglas, no al revés.
                 </p>
               </div>
 
@@ -147,7 +147,7 @@ export default function PriviaLandingPage() {
                       onClick={handleDemoRequest}
                       className="bg-transparent border border-[#F5A35B] text-[#F5A35B] hover:bg-[#F5A35B] hover:text-white px-12 py-4 text-base font-light tracking-[0.2em] transition-all duration-300 rounded-none uppercase"
                     >
-                      Solicitar Consulta
+                      Agendar una Consulta Privada
                     </Button>
                   </div>
                 ) : (
@@ -229,7 +229,7 @@ export default function PriviaLandingPage() {
           <div className="text-center mb-20">
             <div className="w-16 h-px bg-[#F5A35B] mx-auto mb-8"></div>
             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white mb-8 font-light tracking-tight">
-             Diseñado a medida para Country Clubs
+             Su mundo es único. Su software también debería serlo.
             </h2>
             <p className="text-white/70 text-lg md:text-2xl font-light leading-relaxed max-w-3xl mx-auto">
               Los barrios privados y country clubs de élite enfrentan un desafío único: gestionar operaciones complejas sin comprometer una experiencia de lujo y seguridad para los residentes. Las soluciones genéricas fallan porque no entienden su estándar de exclusividad.
@@ -243,7 +243,7 @@ export default function PriviaLandingPage() {
               </div>
               <h4 className="text-xl font-serif text-white mb-4 font-light">Sistemas Rígidos</h4>
               <p className="text-white/70 leading-relaxed font-light text-base">
-                ¿Su software actual le obliga a adaptar sus reglas a la tecnología, y no al revés?
+                Obligan a su staff a crear "soluciones caseras" para tareas simples.
               </p>
             </div>
 
@@ -251,9 +251,9 @@ export default function PriviaLandingPage() {
               <div className="w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-[#F5A35B]/10 to-[#F5A35B]/20 rounded-full flex items-center justify-center border border-[#F5A35B]/30 group-hover:shadow-lg transition-all duration-300">
                 <div className="w-2 h-2 bg-[#F5A35B] rounded-full"></div>
               </div>
-              <h4 className="text-xl font-serif text-white mb-4 font-light">Fricción para el Residente</h4>
+              <h4 className="text-xl font-serif text-white mb-4 font-light">Experiencias anticuadas</h4>
               <p className="text-white/70 leading-relaxed font-light text-base">
-                ¿Recibe quejas constantes sobre procesos anticuados para reservar amenities, gestionar invitados o solicitar servicios?
+                Generan quejas constantes de los residentes al gestionar invitados o reservar canchas.
               </p>
             </div>
 
@@ -261,9 +261,9 @@ export default function PriviaLandingPage() {
               <div className="w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-[#F5A35B]/10 to-[#F5A35B]/20 rounded-full flex items-center justify-center border border-[#F5A35B]/30 group-hover:shadow-lg transition-all duration-300">
                 <div className="w-2 h-2 bg-[#F5A35B] rounded-full"></div>
               </div>
-              <h4 className="text-xl font-serif text-white mb-4 font-light">Ineficiencia Operativa</h4>
+              <h4 className="text-xl font-serif text-white mb-4 font-light">Horas de gestión manual</h4>
               <p className="text-white/70 leading-relaxed font-light text-base">
-                ¿Su equipo invierte horas en tareas manuales que una plataforma inteligente podría automatizar en segundos?
+                que su equipo pierde en tareas que nuestra plataforma automatiza en segundos.
               </p>
             </div>
           </div>
@@ -273,10 +273,10 @@ export default function PriviaLandingPage() {
             <div className="w-16 h-px bg-[#F5A35B] mx-auto mb-8"></div>
             <div className="max-w-4xl mx-auto">
               <h3 className="font-serif text-3xl md:text-4xl text-white mb-8 font-light tracking-tight">
-                <span className="text-[#F5A35B]">Nuestra Solución:</span> Privia no es un software, es su socio operativo para barrios privados de lujo.
+                <span className="text-[#F5A35B]">Nuestra Solución:</span> Privia: El Control que Exige, la Experiencia que Merecen.
               </h3>
               <p className="text-white/70 text-lg md:text-xl leading-relaxed font-light">
-                Creamos una plataforma centralizada que se adapta a las reglas y la identidad de su comunidad exclusiva, eliminando la fricción para todos y maximizando la seguridad.
+                Creamos una plataforma centralizada que se amolda a las reglas de su comunidad. Eliminamos la fricción para residentes y optimizamos cada proceso para su staff, reforzando la seguridad y el prestigio que los define.
               </p>
             </div>
           </div>
@@ -297,7 +297,7 @@ export default function PriviaLandingPage() {
           <div className="text-center mb-20">
             <div className="w-16 h-px bg-[#F5A35B] mx-auto mb-8"></div>
             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-slate-900 mb-8 font-light tracking-tight">
-              Excelencia invisible
+              Nuestros Principios No Son Negociables
             </h2>
             <p className="text-slate-600 text-xl md:text-2xl font-light leading-relaxed max-w-4xl mx-auto">
               La tecnología más sofisticada es aquella que nunca se nota. Experiencias perfectas que fluyen sin esfuerzo.
@@ -313,7 +313,7 @@ export default function PriviaLandingPage() {
                   <div className="w-3 h-3 bg-[#F5A35B] rounded-full mb-8"></div>
                   <h3 className="text-2xl font-serif text-slate-800 mb-6 font-light">Adaptabilidad Absoluta, No Configuración.</h3>
                   <p className="text-slate-600 leading-relaxed font-light text-lg mb-6">
-                    Los sistemas comunes le ofrecen 'opciones' dentro de una caja rígida. Nosotros rompemos la caja. No configuramos un software existente; moldeamos nuestra plataforma para que se adapte perfectamente a las reglas, la identidad y las necesidades únicas de su comunidad. Su operación dicta la tecnología, no al revés.
+                   Los sistemas comunes le dan una lista de opciones. Nosotros le damos el control. Nuestra plataforma está construida sobre un motor de reglas flexible. Esto significa que configuramos el sistema para que ejecute sus procesos operativos exactamente como usted los definió. La tecnología se adapta a sus reglas, no al revés."
                   </p>
                 </div>
               </div>
@@ -327,7 +327,7 @@ export default function PriviaLandingPage() {
                   <div className="w-3 h-3 bg-[#1F2029] rounded-full mb-8"></div>
                   <h3 className="text-2xl font-serif text-slate-800 mb-6 font-light">Diseño Obsesivo, No Funcionalidad.</h3>
                   <p className="text-slate-600 leading-relaxed font-light text-lg mb-6">
-                    Para nosotros, la forma en que un residente interactúa con la tecnología es tan importante como lo que hace. Cada pantalla, cada botón y cada notificación está diseñada con la misma atención al detalle que un arquitecto le daría a su living. El resultado es una experiencia intuitiva y elegante que se siente como una extensión natural de su comunidad.
+                    Cada interacción está diseñada con la elegancia y simplicidad que sus residentes esperan en cada rincón de la comunidad. Una experiencia intuitiva que se siente como una extensión natural de su marca.
                   </p>
                 </div>
               </div>
@@ -339,9 +339,9 @@ export default function PriviaLandingPage() {
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#F5A35B]/5 to-transparent rounded-bl-full"></div>
                 <div className="relative">
                   <div className="w-3 h-3 bg-[#F5A35B] rounded-full mb-8"></div>
-                  <h3 className="text-2xl font-serif text-slate-800 mb-6 font-light">Servicio de white-glove concierge, No Soporte Técnico.</h3>
+                  <h3 className="text-2xl font-serif text-slate-800 mb-6 font-light"> Alianza Estratégica, no "Soporte Técnico".</h3>
                   <p className="text-slate-600 leading-relaxed font-light text-lg mb-6">
-                    Nuestros clientes no envían 'tickets de soporte'. Tienen un socio estratégico dedicado que entiende sus operaciones. Brindamos implementación proactiva, monitoreo constante y nos anticipamos a sus necesidades. Somos una extensión de su equipo de gestión, no un proveedor externo.
+                    Nuestros clientes no son un número de ticket. Asignamos un socio dedicado de Privia que entiende su operación y se anticipa a sus necesidades. Somos una extensión de su equipo, no un proveedor.
                   </p>
                 </div>
               </div>
@@ -464,7 +464,7 @@ export default function PriviaLandingPage() {
               No somos para todos.
             </h2>
             <p className="text-white/70 text-lg md:text-2xl font-light leading-relaxed max-w-4xl mx-auto mb-12">
-              Seleccionamos cuidadosamente a las comunidades con las que nos asociamos. Buscamos administraciones con una visión a largo plazo, que entiendan que invertir en la experiencia del residente es la estrategia de crecimiento más inteligente.
+              Seleccionamos a las comunidades con las que nos asociamos. Buscamos administraciones con una visión a largo plazo, que entiendan que la tecnología no es un costo, sino una inversión estratégica en la experiencia del residente y el valor de la propiedad.
             </p>
           </div>
 
@@ -477,14 +477,14 @@ export default function PriviaLandingPage() {
                 <div className="w-2 h-2 bg-[#F5A35B] rounded-full opacity-40"></div>
               </div>
               <p className="text-white/70 text-xl md:text-2xl font-light leading-relaxed mb-12 italic">
-                "Si su comunidad comparte nuestra obsesión por la excelencia y está lista para explorar cómo un socio tecnológico puede desbloquear un nuevo nivel de prestigio y eficiencia, nos gustaría conversar."
+                "Si su comunidad comparte nuestra obsesión por la excelencia, nos gustaría iniciar una conversación."
               </p>
               
               <div className="flex justify-center">
                 <Button
                   className="bg-transparent border border-[#F5A35B] text-[#F5A35B] hover:bg-[#F5A35B] hover:text-white px-12 py-4 text-base font-light tracking-[0.2em] transition-all duration-300 rounded-none uppercase"
                 >
-                  Solicitar Consulta
+                  Agendar una Consulta Privada
                 </Button>
               </div>
             </div>
@@ -528,10 +528,10 @@ export default function PriviaLandingPage() {
               <div className="w-6 h-px bg-[#F5A35B] opacity-40"></div>
             </div>
             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-slate-900 mb-8 font-light tracking-tight">
-              Su comunidad merece un sistema operativo a su altura.
+              Un sistema operativo a la altura de su comunidad.
             </h2>
             <p className="text-slate-600 text-xl md:text-2xl font-light leading-relaxed max-w-4xl mx-auto">
-              Las comunidades que elegimos merecen más que herramientas genéricas. Merecen una plataforma que entienda el significado de la excelencia y se adapte a su estándar único.
+              Así es como exploramos una posible alianza:
             </p>
           </div>
 
@@ -542,8 +542,8 @@ export default function PriviaLandingPage() {
                 <div className="w-2 h-2 bg-[#F5A35B] rounded-full"></div>
               </div>
               <div>
-                <h5 className="text-lg font-serif text-slate-800 font-light mb-3">Llamada de Descubrimiento (15 min)</h5>
-                <p className="text-slate-600 text-sm font-light">Una breve conversación para entender los desafíos únicos de su comunidad.</p>
+                <h5 className="text-lg font-serif text-slate-800 font-light mb-3">Conversación Estratégica (15 min)</h5>
+                <p className="text-slate-600 text-sm font-light">Una llamada para entender sus desafíos operativos, sus reglas únicas y sus objetivos a largo plazo.</p>
               </div>
             </div>
 
@@ -552,8 +552,8 @@ export default function PriviaLandingPage() {
                 <div className="w-2 h-2 bg-[#F5A35B] rounded-full"></div>
               </div>
               <div>
-                <h5 className="text-lg font-serif text-slate-800 font-light mb-3">Demo Personalizada</h5>
-                <p className="text-slate-600 text-sm font-light">Le mostraremos exactamente cómo Privia puede resolver esos desafíos.</p>
+                <h5 className="text-lg font-serif text-slate-800 font-light mb-3">Taller de Solución a Medida</h5>
+                <p className="text-slate-600 text-sm font-light">Un recorrido interactivo donde le mostramos exactamente cómo Privia se adaptaría a sus procesos, no una demo genérica.</p>
               </div>
             </div>
 
@@ -562,8 +562,8 @@ export default function PriviaLandingPage() {
                 <div className="w-2 h-2 bg-[#F5A35B] rounded-full"></div>
               </div>
               <div>
-                <h5 className="text-lg font-serif text-slate-800 font-light mb-3">Propuesta a Medida</h5>
-                <p className="text-slate-600 text-sm font-light">Recibirá una propuesta clara y transparente, sin sorpresas.</p>
+                <h5 className="text-lg font-serif text-slate-800 font-light mb-3">Propuesta de Alianza</h5>
+                <p className="text-slate-600 text-sm font-light">Recibirá un plan claro y transparente para implementar Privia como el sistema operativo de su comunidad.</p>
               </div>
             </div>
           </div>
