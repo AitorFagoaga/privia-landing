@@ -5,87 +5,87 @@ import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 
 const navLinks = [
-  { label: "Overview", href: "#hero" },
-  { label: "The Cost Problem", href: "#problem-solution" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Benefits", href: "#benefits" },
+  { label: "Resumen", href: "#hero" },
+  { label: "El Problema de Costos", href: "#problem-solution" },
+  { label: "Cómo Funciona", href: "#how-it-works" },
+  { label: "Beneficios", href: "#benefits" },
 ]
 
 const heroStats = [
-  { value: "99%", label: "false alarms eliminated" },
-  { value: "24/7", label: "camera coverage without extra headcount" },
-  { value: "6–12 mo", label: "typical ROI window" },
+  { value: "99%", label: "falsas alarmas eliminadas" },
+  { value: "24/7", label: "cobertura de cámaras sin personal adicional" },
+  { value: "6–12 meses", label: "ventana típica de ROI" },
 ]
 
 const painPoints = [
   {
-    title: "Exorbitant Guarding Costs",
+    title: "Costos Exorbitantes de Seguridad",
     description:
-      "A single 24/7 post now exceeds $3K per month. Multiply that by every gate and patrol route and budgets collapse.",
+      "Un solo puesto 24/7 ahora supera los $3K por mes. Multiplica eso por cada puerta y ruta de patrullaje y los presupuestos colapsan.",
   },
   {
-    title: "Alert Fatigue Is Real",
+    title: "La Fatiga de Alertas es Real",
     description:
-      "Over 75% of alarms are weather, wildlife, or shadows. Guards stop trusting the system and real threats slip through.",
+      "Más del 75% de las alarmas son clima, fauna o sombras. Los guardias dejan de confiar en el sistema y las amenazas reales pasan desapercibidas.",
   },
   {
-    title: "Zero Operational Insight",
+    title: "Cero Visión Operativa",
     description:
-      "Hours of footage sit untouched. There is no easy way to review incidents, track trends, or justify staffing levels.",
+      "Horas de grabaciones sin revisar. No hay forma fácil de revisar incidentes, rastrear tendencias o justificar niveles de personal.",
   },
 ]
 
 const solutionHighlights = [
-  "Eliminate 99% of false alarms so guards act only on verified threats.",
-  "Redeploy staff coverage with data-backed heatmaps and incident analytics.",
-  "Deliver board-ready reporting that proves savings and risk reduction every week.",
+  "Elimina el 99% de falsas alarmas para que los guardias actúen solo ante amenazas verificadas.",
+  "Redistribuye la cobertura del personal con mapas de calor y análisis de incidentes basados en datos.",
+  "Entrega reportes ejecutivos que demuestran ahorros y reducción de riesgos cada semana.",
 ]
 
 const howItWorksSteps = [
   {
     step: "1",
-    title: "Connect",
+    title: "Conectar",
     description:
-      "Link Privia to your existing CCTV in days. No rip-and-replace, no new hardware budget, no operational downtime.",
+      "Vincula Privia a tu CCTV existente en días. Sin reemplazos, sin presupuesto de hardware nuevo, sin tiempo de inactividad operativa.",
   },
   {
     step: "2",
-    title: "Analyze",
+    title: "Analizar",
     description:
-      "Video feeds stream through our platform in real time. Privia learns routine activity and flags anomalies with human-level precision.",
+      "Las transmisiones de video fluyen a través de nuestra plataforma en tiempo real. Privia aprende la actividad rutinaria y señala anomalías con precisión humana.",
   },
   {
     step: "3",
-    title: "Alert",
+    title: "Alertar",
     description:
-      "Only verified threats trigger priority alerts. Guards move with confidence while residents gain measurable protection.",
+      "Solo las amenazas verificadas activan alertas prioritarias. Los guardias actúan con confianza mientras los residentes ganan protección medible.",
   },
 ]
 
 const benefitCards = [
   {
-    title: "Real Threat Verification",
+    title: "Verificación de Amenazas Reales",
     description:
-      "Privia filters every feed and forwards only validated incidents. Guard shifts focus on the 1% that matter, shrinking overtime and response lag.",
-    meta: "99% reduction in noise",
+      "Privia filtra cada transmisión y reenvía solo incidentes validados. Los turnos de guardia se enfocan en el 1% que importa, reduciendo horas extras y retrasos de respuesta.",
+    meta: "99% de reducción de ruido",
   },
   {
-    title: "Pattern Intelligence",
+    title: "Inteligencia de Patrones",
     description:
-      "Spot recurring perimeter testing, suspicious vehicle loops, or late-night foot traffic. Anticipate the next incident instead of reacting to the last one.",
-    meta: "Heatmaps & anomaly trails",
+      "Detecta pruebas recurrentes de perímetro, bucles de vehículos sospechosos o tráfico peatonal nocturno. Anticipa el próximo incidente en lugar de reaccionar al último.",
+    meta: "Mapas de calor y rastros de anomalías",
   },
   {
-    title: "Zero-Disruption Deployment",
+    title: "Implementación sin Interrupciones",
     description:
-      "Keep the cameras and guard talent you already paid for. Privia slots into your VMS and augments operations immediately.",
-    meta: "Hardware-agnostic integration",
+      "Mantén las cámaras y el talento de seguridad por el que ya pagaste. Privia se integra en tu VMS y mejora las operaciones inmediatamente.",
+    meta: "Integración agnóstica de hardware",
   },
   {
-    title: "Executive-Ready Reporting",
+    title: "Reportes Ejecutivos Listos",
     description:
-      "Weekly dashboards quantify reduced dispatches, staffing efficiencies, and SLA performance. Give boards and residents the proof they expect.",
-    meta: "Cost & risk KPIs on demand",
+      "Dashboards semanales cuantifican despachos reducidos, eficiencias de personal y desempeño de SLA. Brinda a directivos y residentes la prueba que esperan.",
+    meta: "KPIs de costos y riesgos a demanda",
   },
 ]
 
@@ -184,7 +184,7 @@ export default function PriviaLandingPage() {
               onClick={scrollToCta}
               className="rounded-full border border-[#2CF5FF]/70 bg-[#2CF5FF]/10 px-6 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#2CF5FF] transition duration-300 hover:bg-[#2CF5FF] hover:text-slate-900"
             >
-              ROI Assessment
+              Evaluación de ROI
             </Button>
           </div>
         </div>
@@ -200,25 +200,24 @@ export default function PriviaLandingPage() {
 
         <div className="relative z-10 mx-auto flex min-h-[88vh] max-w-6xl flex-col items-center justify-center px-4 text-center">
           <span className="animate-on-scroll inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.32em] text-white/60">
-            AI co-pilot for physical security teams
+            Co-piloto de IA para equipos de seguridad física
           </span>
           <h1 className="animate-on-scroll mt-10 font-serif text-4xl leading-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
-            Cut Guarding Costs Without Cutting Guards
+            Reduce Costos de Seguridad Sin Reducir Guardias
           </h1>
           <p className="animate-on-scroll mt-6 max-w-3xl text-lg text-white/80 sm:text-xl">
-            Privia filters 24/7 camera feeds, kills 99% of false alarms, and
-            keeps your existing team focused on real threats—no new hardware
-            required.
+            Privia filtra transmisiones de cámaras 24/7, elimina el 99% de falsas alarmas y
+            mantiene a tu equipo existente enfocado en amenazas reales—sin necesidad de hardware nuevo.
           </p>
           <div className="animate-on-scroll mt-8 flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
             <Button
               onClick={scrollToCta}
               className="rounded-full bg-[#2CF5FF] px-10 py-4 text-xs font-semibold uppercase tracking-[0.28em] text-slate-900 transition duration-300 hover:-translate-y-0.5 hover:bg-[#7bfaff]"
             >
-              Book a 20-Minute ROI Assessment
+              Agenda una Evaluación de ROI de 20 Minutos
             </Button>
             <span className="text-sm text-white/60">
-              We augment your guards, never replace them.
+              Potenciamos a tus guardias, nunca los reemplazamos.
             </span>
           </div>
 
@@ -238,40 +237,6 @@ export default function PriviaLandingPage() {
             ))}
           </div>
         </div>
-
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
-          <button
-            onClick={() => {
-              if (typeof window !== "undefined") {
-                document
-                  .querySelector("section")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-            }}
-            className="group flex flex-col items-center"
-          >
-            <div className="relative flex h-14 w-14 items-center justify-center rounded-full border border-white/15 bg-white/5 backdrop-blur-md transition-all duration-500 group-hover:scale-110 group-hover:border-[#2CF5FF]/60 group-hover:bg-[#2CF5FF]/10">
-              <div className="absolute inset-1 rounded-full bg-gradient-to-b from-white/10 to-transparent" />
-              <svg
-                className="relative z-10 h-6 w-6 animate-gentle-bounce text-white/80 group-hover:text-[#2CF5FF]"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                />
-              </svg>
-            </div>
-            <span className="mt-4 text-xs uppercase tracking-[0.3em] text-white/50">
-              Scroll
-            </span>
-          </button>
-        </div>
       </main>
 
       <section
@@ -282,11 +247,11 @@ export default function PriviaLandingPage() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="animate-on-scroll text-center">
             <h2 className="font-serif text-4xl text-white md:text-5xl">
-              Property Security Is Overdue for a Reset
+              La Seguridad Inmobiliaria Necesita un Reinicio
             </h2>
             <p className="mt-6 text-lg text-white/70 sm:text-xl">
-              Guarding is your largest operating expense, yet the current model
-              is broken—and getting more expensive every quarter.
+              La seguridad es tu mayor gasto operativo, pero el modelo actual
+              está roto—y se vuelve más costoso cada trimestre.
             </p>
           </div>
 
@@ -309,15 +274,15 @@ export default function PriviaLandingPage() {
 
             <div className="animate-on-scroll rounded-3xl border border-[#2CF5FF]/20 bg-gradient-to-br from-[#071029] via-[#050d1f] to-[#040a18] p-10 backdrop-blur-xl">
               <span className="text-xs uppercase tracking-[0.3em] text-[#2CF5FF]">
-                The Privia Response
+                La Respuesta de Privia
               </span>
               <h3 className="mt-6 font-serif text-3xl text-white">
-                An intelligent filter that makes every guard post count
+                Un filtro inteligente que hace que cada puesto de guardia cuente
               </h3>
               <p className="mt-4 text-base text-white/70">
-                Privia plugs into the cameras you already rely on and becomes the signal processor your guards never
-                had. We surface real threats instantly and give you the operational intelligence to{" "}
-                redeploy coverage with confidence.
+                Privia se conecta a las cámaras en las que ya confías y se convierte en el procesador de señales que tus guardias nunca
+                tuvieron. Detectamos amenazas reales al instante y te brindamos la inteligencia operativa para{" "}
+                redistribuir la cobertura con confianza.
               </p>
               <ul className="mt-8 space-y-4 text-sm text-white/75">
                 {solutionHighlights.map((item) => (
@@ -341,14 +306,14 @@ export default function PriviaLandingPage() {
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="animate-on-scroll text-center">
             <span className="text-xs uppercase tracking-[0.3em] text-[#2CF5FF]">
-              Seamless Workflow
+              Flujo de Trabajo Continuo
             </span>
             <h2 className="mt-6 font-serif text-4xl text-white md:text-5xl">
-              Connect. Analyze. Alert.
+              Conectar. Analizar. Alertar.
             </h2>
             <p className="mt-4 text-lg text-white/70 sm:text-xl">
-              Privia coexists with your infrastructure and supercharges your
-              guard operations from day one.
+              Privia coexiste con tu infraestructura y potencia tus
+              operaciones de seguridad desde el primer día.
             </p>
           </div>
 
@@ -379,11 +344,11 @@ export default function PriviaLandingPage() {
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="animate-on-scroll text-center">
             <h2 className="font-serif text-4xl md:text-5xl">
-              Features Built for Operational ROI
+              Funcionalidades Diseñadas para ROI Operativo
             </h2>
             <p className="mt-4 text-lg text-white/70 sm:text-xl">
-              Translate technical capability into measurable savings, sharper
-              coverage, and confident reporting.
+              Traduce capacidad técnica en ahorros medibles, mejor
+              cobertura y reportes seguros.
             </p>
           </div>
 
@@ -417,15 +382,14 @@ export default function PriviaLandingPage() {
         <div className="absolute bottom-12 right-12 h-52 w-52 rounded-full border border-[#6D59FF]/25" />
         <div className="relative mx-auto max-w-4xl px-4 text-center text-white">
           <span className="animate-on-scroll text-xs uppercase tracking-[0.3em] text-[#2CF5FF]">
-            Take the Next Step
+            Da el Siguiente Paso
           </span>
           <h2 className="animate-on-scroll mt-6 font-serif text-4xl sm:text-5xl">
-            Ready to see how much waste Privia can remove?
+            ¿Listo para ver cuánto desperdicio puede eliminar Privia?
           </h2>
           <p className="animate-on-scroll mt-4 text-lg text-white/70">
-            Request your tailored cost-savings plan and put your guards back on
-            offense. We will model your current staffing, alarm load, and risk
-            posture to uncover the fastest path to ROI.
+            Solicita tu plan personalizado de ahorro de costos y pon a tus guardias nuevamente en ofensiva.
+            Modelaremos tu personal actual, carga de alarmas y postura de riesgo para descubrir el camino más rápido hacia el ROI.
           </p>
 
           {!isSubmitted ? (
@@ -434,21 +398,21 @@ export default function PriviaLandingPage() {
                 onClick={handleAssessmentRequest}
                 className="rounded-full bg-[#2CF5FF] px-10 py-4 text-xs font-semibold uppercase tracking-[0.28em] text-slate-900 transition duration-300 hover:-translate-y-0.5 hover:bg-[#7bfaff]"
               >
-                Request Cost-Savings Plan
+                Solicitar Plan de Ahorro de Costos
               </Button>
               <p className="text-sm text-white/60">
-                A Privia specialist will connect within 24 hours.
+                Un especialista de Privia te contactará en 24 horas.
               </p>
             </div>
           ) : (
             <div className="animate-on-scroll mt-12 rounded-3xl border border-[#2CF5FF]/30 bg-[#041023]/80 p-10 backdrop-blur-xl">
               <h3 className="font-serif text-2xl text-[#2CF5FF]">
-                Thank you — we&apos;re on it.
+                Gracias — estamos en ello.
               </h3>
               <p className="mt-4 text-sm text-white/70">
-                A Privia specialist will reach out within the next 24 hours with
-                a tailored ROI walkthrough for your community. We look forward to
-                helping you reclaim your security budget.
+                Un especialista de Privia se comunicará dentro de las próximas 24 horas con
+                un recorrido de ROI personalizado para tu comunidad. Esperamos
+                ayudarte a recuperar tu presupuesto de seguridad.
               </p>
             </div>
           )}
@@ -476,14 +440,14 @@ export default function PriviaLandingPage() {
                 </span>
               </div>
               <p className="mt-6 max-w-sm text-sm text-white/60">
-                AI-powered verification that keeps premium communities safer
-                while protecting the guard teams that residents already trust.
+                Verificación impulsada por IA que mantiene más seguras a las comunidades premium
+                mientras protege a los equipos de guardia en los que los residentes ya confían.
               </p>
             </div>
 
             <div>
               <h4 className="text-sm font-semibold uppercase tracking-[0.3em] text-white">
-                Navigation
+                Navegación
               </h4>
               <ul className="mt-4 space-y-3 text-sm">
                 <li>
@@ -491,7 +455,7 @@ export default function PriviaLandingPage() {
                     className="transition-colors hover:text-[#2CF5FF]"
                     href="#hero"
                   >
-                    Overview
+                    Resumen
                   </a>
                 </li>
                 <li>
@@ -499,7 +463,7 @@ export default function PriviaLandingPage() {
                     className="transition-colors hover:text-[#2CF5FF]"
                     href="#problem-solution"
                   >
-                    The Cost Problem
+                    El Problema de Costos
                   </a>
                 </li>
                 <li>
@@ -507,7 +471,7 @@ export default function PriviaLandingPage() {
                     className="transition-colors hover:text-[#2CF5FF]"
                     href="#how-it-works"
                   >
-                    How It Works
+                    Cómo Funciona
                   </a>
                 </li>
                 <li>
@@ -515,7 +479,7 @@ export default function PriviaLandingPage() {
                     className="transition-colors hover:text-[#2CF5FF]"
                     href="#benefits"
                   >
-                    Benefits
+                    Beneficios
                   </a>
                 </li>
                 <li>
@@ -523,7 +487,7 @@ export default function PriviaLandingPage() {
                     className="transition-colors hover:text-[#2CF5FF]"
                     href="#cta"
                   >
-                    ROI Assessment
+                    Evaluación de ROI
                   </a>
                 </li>
               </ul>
@@ -531,7 +495,7 @@ export default function PriviaLandingPage() {
 
             <div>
               <h4 className="text-sm font-semibold uppercase tracking-[0.3em] text-white">
-                Contact
+                Contacto
               </h4>
               <ul className="mt-4 space-y-3 text-sm">
                 <li>
@@ -545,13 +509,13 @@ export default function PriviaLandingPage() {
           </div>
 
           <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-white/50 md:flex-row">
-            <p>© {new Date().getFullYear()} Privia. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Privia. Todos los derechos reservados.</p>
             <div className="flex gap-6">
               <a className="transition-colors hover:text-[#2CF5FF]" href="#">
-                Privacy
+                Privacidad
               </a>
               <a className="transition-colors hover:text-[#2CF5FF]" href="#">
-                Terms
+                Términos
               </a>
               <a className="transition-colors hover:text-[#2CF5FF]" href="#">
                 Cookies
