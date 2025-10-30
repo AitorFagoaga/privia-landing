@@ -1,8 +1,93 @@
 "use client"
 
 import type React from "react"
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
+
+const navLinks = [
+  { label: "Overview", href: "#hero" },
+  { label: "The Cost Problem", href: "#problem-solution" },
+  { label: "How It Works", href: "#how-it-works" },
+  { label: "Benefits", href: "#benefits" },
+]
+
+const heroStats = [
+  { value: "99%", label: "false alarms eliminated" },
+  { value: "24/7", label: "camera coverage without extra headcount" },
+  { value: "6–12 mo", label: "typical ROI window" },
+]
+
+const painPoints = [
+  {
+    title: "Exorbitant Guarding Costs",
+    description:
+      "A single 24/7 post now exceeds $3K per month. Multiply that by every gate and patrol route and budgets collapse.",
+  },
+  {
+    title: "Alert Fatigue Is Real",
+    description:
+      "Over 75% of alarms are weather, wildlife, or shadows. Guards stop trusting the system and real threats slip through.",
+  },
+  {
+    title: "Zero Operational Insight",
+    description:
+      "Hours of footage sit untouched. There is no easy way to review incidents, track trends, or justify staffing levels.",
+  },
+]
+
+const solutionHighlights = [
+  "Eliminate 99% of false alarms so guards act only on verified threats.",
+  "Redeploy staff coverage with data-backed heatmaps and incident analytics.",
+  "Deliver board-ready reporting that proves savings and risk reduction every week.",
+]
+
+const howItWorksSteps = [
+  {
+    step: "1",
+    title: "Connect",
+    description:
+      "Link Privia to your existing CCTV in days. No rip-and-replace, no new hardware budget, no operational downtime.",
+  },
+  {
+    step: "2",
+    title: "Analyze",
+    description:
+      "Video feeds stream through our platform in real time. Privia learns routine activity and flags anomalies with human-level precision.",
+  },
+  {
+    step: "3",
+    title: "Alert",
+    description:
+      "Only verified threats trigger priority alerts. Guards move with confidence while residents gain measurable protection.",
+  },
+]
+
+const benefitCards = [
+  {
+    title: "Real Threat Verification",
+    description:
+      "Privia filters every feed and forwards only validated incidents. Guard shifts focus on the 1% that matter, shrinking overtime and response lag.",
+    meta: "99% reduction in noise",
+  },
+  {
+    title: "Pattern Intelligence",
+    description:
+      "Spot recurring perimeter testing, suspicious vehicle loops, or late-night foot traffic. Anticipate the next incident instead of reacting to the last one.",
+    meta: "Heatmaps & anomaly trails",
+  },
+  {
+    title: "Zero-Disruption Deployment",
+    description:
+      "Keep the cameras and guard talent you already paid for. Privia slots into your VMS and augments operations immediately.",
+    meta: "Hardware-agnostic integration",
+  },
+  {
+    title: "Executive-Ready Reporting",
+    description:
+      "Weekly dashboards quantify reduced dispatches, staffing efficiencies, and SLA performance. Give boards and residents the proof they expect.",
+    meta: "Cost & risk KPIs on demand",
+  },
+]
 
 export default function PriviaLandingPage() {
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -15,632 +100,462 @@ export default function PriviaLandingPage() {
   }, [])
 
   useEffect(() => {
-    // Intersection Observer for scroll animations
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
+        threshold: 0.15,
+        rootMargin: "0px 0px -80px 0px",
       }
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-in-up')
+            entry.target.classList.add("animate-fade-in-up")
           }
         })
       }, observerOptions)
 
-      // Observe all elements with animation classes
-      const animatedElements = document.querySelectorAll('.animate-on-scroll')
+      const animatedElements = document.querySelectorAll(".animate-on-scroll")
       animatedElements.forEach((el) => observer.observe(el))
 
       return () => observer.disconnect()
     }
   }, [])
 
-  const handleDemoRequest = () => {
+  const scrollProgress =
+    typeof window !== "undefined"
+      ? Math.min(
+          100,
+          (scrollY /
+            Math.max(
+              1,
+              document.documentElement.scrollHeight - window.innerHeight,
+            )) *
+            100,
+        )
+      : 0
+
+  const scrollToCta = () => {
+    if (typeof window !== "undefined") {
+      document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
+  const handleAssessmentRequest = () => {
     setIsSubmitted(true)
-    console.log("Demo request submitted")
+    console.log("ROI assessment requested")
   }
 
   return (
-    <div className="min-h-screen">
-      {/* Scroll Progress Indicator */}
+    <div className="min-h-screen bg-[#040712] text-slate-100 relative">
       <div className="fixed top-0 left-0 right-0 z-[60] h-1 bg-white/10">
-        <div 
-          className="h-full bg-[#F5A35B] transition-all duration-300 ease-out"
-          style={{ width: typeof window !== 'undefined' ? `${(scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100}%` : '0%' }}
+        <div
+          className="h-full bg-[#2CF5FF] transition-all duration-300 ease-out"
+          style={{ width: `${scrollProgress}%` }}
         />
       </div>
 
-      {/* Navigation Header */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1F2029]/90 backdrop-blur-md border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <div className="flex items-center space-x-3">
-              <img 
-                src="/images/PriviaIndividualFinal.svg" 
-                alt="Privia - Sistema Operativo para Barrios Privados y Country Clubs de Lujo" 
-                className="w-8 h-8 sm:w-10 sm:h-10 filter drop-shadow-lg"
-              />
-              <div className="text-white font-serif text-xl font-light tracking-wider">
-                Privia
-              </div>
-            </div>
-            
-            {/* Navigation Menu */}
-            <div className="hidden md:block">
-              <div className="flex items-center space-x-8">
-                <a href="#inicio" className="text-[#F5A35B] hover:text-[#F5A35B]/80 transition-colors duration-200 text-sm font-medium tracking-wide border-b border-[#F5A35B]">
-                  INICIO
-                </a>
-                <a href="#servicios" className="text-white/90 hover:text-[#F5A35B] transition-colors duration-200 text-sm font-medium tracking-wide">
-                  SERVICIOS
-                </a>
-                <a href="#nosotros" className="text-white/90 hover:text-[#F5A35B] transition-colors duration-200 text-sm font-medium tracking-wide">
-                  NOSOTROS
-                </a>
-                <a href="#contacto" className="text-white/90 hover:text-[#F5A35B] transition-colors duration-200 text-sm font-medium tracking-wide">
-                  CONTACTO
-                </a>
-              </div>
-            </div>
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-black/60 backdrop-blur-xl">
+        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+          <a href="#hero" className="flex items-center gap-3">
+            <img
+              src="/images/PriviaIndividualFinal.svg"
+              alt="Privia logo"
+              className="h-10 w-10 drop-shadow-[0_0_12px_rgba(44,245,255,0.45)]"
+            />
+            <span className="font-serif text-xl tracking-[0.2em] text-white">
+              Privia
+            </span>
+          </a>
 
-            {/* Mobile Menu Button */}
-            <div className="md:hidden">
-              <button className="text-white/90 hover:text-[#F5A35B]">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              </button>
-            </div>
+          <div className="hidden items-center gap-8 md:flex">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium uppercase tracking-[0.18em] text-white/70 transition-colors duration-200 hover:text-[#2CF5FF]"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          <div className="hidden md:block">
+            <Button
+              onClick={scrollToCta}
+              className="rounded-full border border-[#2CF5FF]/70 bg-[#2CF5FF]/10 px-6 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#2CF5FF] transition duration-300 hover:bg-[#2CF5FF] hover:text-slate-900"
+            >
+              ROI Assessment
+            </Button>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <main className="min-h-screen relative overflow-hidden pt-16" role="main" id="inicio">
-        {/* Background Image with Overlay */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-slow-pan"
-          style={{
-            backgroundImage: "url(/images/portada_landing_pv.jpg)",
-            transform: `translateY(${scrollY * 0.5}px)`,
-          }}
-          role="img"
-          aria-label="Vista elegante de comunidad exclusiva de lujo - Privia Country Club"
-      >
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-900/70 via-blue-800/55 to-slate-900/80" />
+      <main id="hero" className="relative overflow-hidden pt-24">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(44,245,255,0.14),transparent_55%),radial-gradient(circle_at_80%_10%,rgba(109,89,255,0.18),transparent_45%),linear-gradient(140deg,#050914_0%,#02040a_55%,#06122b_100%)]" />
+          <div className="absolute left-1/2 top-1/3 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[#2CF5FF]/20 blur-3xl" />
+          <div className="absolute -bottom-12 left-10 h-64 w-64 rounded-full bg-[#6D59FF]/25 blur-3xl" />
+          <div className="absolute right-0 top-0 h-[640px] w-1/3 bg-gradient-to-l from-[#081230] via-[#040b1b]/90 to-transparent opacity-80" />
         </div>
 
-        {/* Floating Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-10 w-2 h-2 bg-[#F5A35B]/40 rounded-full animate-float opacity-60" style={{animationDelay: '0s'}}></div>
-          <div className="absolute top-1/3 right-20 w-3 h-3 bg-[#1F2029]/30 rounded-full animate-float opacity-70" style={{animationDelay: '2s'}}></div>
-          <div className="absolute bottom-1/3 left-1/4 w-1.5 h-1.5 bg-white/30 rounded-full animate-float opacity-50" style={{animationDelay: '4s'}}></div>
-          <div className="absolute top-2/3 right-1/3 w-2.5 h-2.5 bg-[#F5A35B]/20 rounded-full animate-float opacity-60" style={{animationDelay: '6s'}}></div>
-        </div>
+        <div className="relative z-10 mx-auto flex min-h-[88vh] max-w-6xl flex-col items-center justify-center px-4 text-center">
+          <span className="animate-on-scroll inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.32em] text-white/60">
+            AI co-pilot for physical security teams
+          </span>
+          <h1 className="animate-on-scroll mt-10 font-serif text-4xl leading-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+            Cut Guarding Costs Without Cutting Guards
+          </h1>
+          <p className="animate-on-scroll mt-6 max-w-3xl text-lg text-white/80 sm:text-xl">
+            Privia filters 24/7 camera feeds, kills 99% of false alarms, and
+            keeps your existing team focused on real threats—no new hardware
+            required.
+          </p>
+          <div className="animate-on-scroll mt-8 flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
+            <Button
+              onClick={scrollToCta}
+              className="rounded-full bg-[#2CF5FF] px-10 py-4 text-xs font-semibold uppercase tracking-[0.28em] text-slate-900 transition duration-300 hover:-translate-y-0.5 hover:bg-[#7bfaff]"
+            >
+              Book a 20-Minute ROI Assessment
+            </Button>
+            <span className="text-sm text-white/60">
+              We augment your guards, never replace them.
+            </span>
+          </div>
 
-        {/* Content */}
-        <div className="relative z-10 min-h-screen flex items-center justify-center px-4">
-          <div className="w-full text-center">
-            <div className="max-w-6xl mx-auto">
-              <div className="opacity-0 animate-fade-in-up mb-16">
-                <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white font-light tracking-tight leading-[1.1] mb-6">
-                   El Sistema Operativo para<br/>
-                  <span className="text-[#F5A35B] font-medium"> Comunidades Residenciales de Lujo</span>
-                </h1>
-                <div className="w-24 h-px bg-[#F5A35B] mx-auto opacity-60"></div>
-              </div>
-
-              <div className="opacity-0 animate-fade-in-up animate-delay-200 mb-16 max-w-3xl mx-auto">
-                <p className="text-white/80 text-xl md:text-2xl font-light tracking-wide leading-relaxed text-center">
-                  Integramos los pilares operativos—accesos, amenities, comunicación—en una única plataforma que se amolda a sus reglas, no al revés.
+          <div className="animate-on-scroll mt-14 grid w-full gap-6 sm:grid-cols-3">
+            {heroStats.map((stat) => (
+              <div
+                key={stat.label}
+                className="rounded-2xl border border-white/5 bg-white/5 p-6 backdrop-blur-lg"
+              >
+                <p className="text-3xl font-semibold text-[#2CF5FF]">
+                  {stat.value}
+                </p>
+                <p className="mt-2 text-sm uppercase tracking-[0.22em] text-white/60">
+                  {stat.label}
                 </p>
               </div>
-
-              <div className="opacity-0 animate-fade-in-up animate-delay-400">
-                {!isSubmitted ? (
-                  <div className="flex justify-center">
-                    <Button
-                      onClick={handleDemoRequest}
-                      className="bg-transparent border border-[#F5A35B] text-[#F5A35B] hover:bg-[#F5A35B] hover:text-white px-12 py-4 text-base font-light tracking-[0.2em] transition-all duration-300 rounded-none uppercase"
-                    >
-                      Agendar una Consulta Privada
-                    </Button>
-                  </div>
-                ) : (
-                  <div className="max-w-xl mx-auto">
-                    <div className="p-10 bg-white/5 backdrop-blur-2xl border border-[#F5A35B]/20 shadow-[0_20px_60px_rgba(245,163,91,0.15)] relative overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#F5A35B]/5 to-transparent"></div>
-                      <div className="relative">
-                        <div className="w-16 h-px bg-[#F5A35B] mx-auto mb-6"></div>
-                        <h3 className="font-serif text-2xl text-white mb-6 font-light tracking-wide">Solicitud Registrada</h3>
-                        <p className="text-white/80 leading-relaxed text-lg font-light">
-                          Gracias por su interés en Privia. Nuestro equipo se pondrá en contacto para coordinar una consulta privada y explorar cómo podemos elevar su comunidad.
-                        </p>
-                        <div className="w-12 h-px bg-[#F5A35B] mx-auto mt-6"></div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* Scroll Down Arrow */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 animate-fade-in-up animate-delay-600">
-          <div className="flex flex-col items-center cursor-pointer group" onClick={() => {
-            if (typeof window !== 'undefined') {
-              document.querySelector('section')?.scrollIntoView({ behavior: 'smooth' })
-            }
-          }}>
-            <div className="relative">
-              {/* Liquid glass background with pulse effect */}
-              <div className="w-14 h-14 rounded-full bg-white/8 backdrop-blur-xl border border-white/20 flex items-center justify-center group-hover:bg-white/15 group-hover:border-white/30 transition-all duration-500 group-hover:scale-110 shadow-[0_8px_32px_rgba(31,32,41,0.2),inset_0_1px_0_rgba(255,255,255,0.1)] animate-liquid-pulse">
-                {/* Inner glow effect */}
-                <div className="absolute inset-1 rounded-full bg-gradient-to-b from-white/10 to-transparent pointer-events-none"></div>
-                
-                {/* Arrow icon */}
-                <svg 
-                  className="w-6 h-6 text-white/90 animate-gentle-bounce relative z-10" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24" 
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={1.5} 
-                    d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                  />
-                </svg>
-              </div>
-              
-              {/* Floating particles effect */}
-              <div className="absolute -top-1 -left-1 w-2 h-2 rounded-full bg-white/30 animate-float opacity-60"></div>
-              <div className="absolute -bottom-2 -right-1 w-1.5 h-1.5 rounded-full bg-[#F5A35B]/40 animate-float" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+          <button
+            onClick={() => {
+              if (typeof window !== "undefined") {
+                document
+                  .querySelector("section")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            }}
+            className="group flex flex-col items-center"
+          >
+            <div className="relative flex h-14 w-14 items-center justify-center rounded-full border border-white/15 bg-white/5 backdrop-blur-md transition-all duration-500 group-hover:scale-110 group-hover:border-[#2CF5FF]/60 group-hover:bg-[#2CF5FF]/10">
+              <div className="absolute inset-1 rounded-full bg-gradient-to-b from-white/10 to-transparent" />
+              <svg
+                className="relative z-10 h-6 w-6 animate-gentle-bounce text-white/80 group-hover:text-[#2CF5FF]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                />
+              </svg>
             </div>
-            
-            {/* Elegant line indicator */}
-            <div className="mt-3 h-12 w-px bg-gradient-to-b from-white/50 via-white/20 to-transparent"></div>
-            
-            {/* Subtle text hint */}
-            <p className="mt-2 text-white/60 text-xs font-light tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              EXPLORAR
-            </p>
-          </div>
+            <span className="mt-4 text-xs uppercase tracking-[0.3em] text-white/50">
+              Scroll
+            </span>
+          </button>
         </div>
       </main>
 
-      {/* Bespoke by Design Section */}
-      <section id="servicios" className="py-32 bg-slate-900 relative overflow-hidden">
-        {/* Elegant background elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-96 h-96 bg-amber-400/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-blue-400/5 rounded-full blur-3xl"></div>
-        </div>
-        
-        <div className="max-w-5xl mx-auto px-4 relative">
-          {/* Section Header */}
-          <div className="text-center mb-20">
-            <div className="w-16 h-px bg-[#F5A35B] mx-auto mb-8"></div>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white mb-8 font-light tracking-tight">
-             Su mundo es único. Su software también debería serlo.
+      <section
+        id="problem-solution"
+        className="relative overflow-hidden py-28 text-slate-100"
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#050f22]/60 to-[#030812]" />
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="animate-on-scroll text-center">
+            <h2 className="font-serif text-4xl text-white md:text-5xl">
+              Property Security Is Overdue for a Reset
             </h2>
-            <p className="text-white/70 text-lg md:text-2xl font-light leading-relaxed max-w-3xl mx-auto">
-              Los barrios privados y country clubs de élite enfrentan un desafío único: gestionar operaciones complejas sin comprometer una experiencia de lujo y seguridad para los residentes. Las soluciones genéricas fallan porque no entienden su estándar de exclusividad.
-            </p>
-          </div>
-          {/* Principles */}
-          <div className="grid md:grid-cols-3 gap-12">
-            <div className="text-center group">
-              <div className="w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-[#F5A35B]/10 to-[#F5A35B]/20 rounded-full flex items-center justify-center border border-[#F5A35B]/30 group-hover:shadow-lg transition-all duration-300">
-                <div className="w-2 h-2 bg-[#F5A35B] rounded-full"></div>
-              </div>
-              <h4 className="text-xl font-serif text-white mb-4 font-light">Sistemas Rígidos</h4>
-              <p className="text-white/70 leading-relaxed font-light text-base">
-                Obligan a su staff a crear "soluciones caseras" para tareas simples.
-              </p>
-            </div>
-
-            <div className="text-center group">
-              <div className="w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-[#F5A35B]/10 to-[#F5A35B]/20 rounded-full flex items-center justify-center border border-[#F5A35B]/30 group-hover:shadow-lg transition-all duration-300">
-                <div className="w-2 h-2 bg-[#F5A35B] rounded-full"></div>
-              </div>
-              <h4 className="text-xl font-serif text-white mb-4 font-light">Experiencias anticuadas</h4>
-              <p className="text-white/70 leading-relaxed font-light text-base">
-                Generan quejas constantes de los residentes al gestionar invitados o reservar canchas.
-              </p>
-            </div>
-
-            <div className="text-center group">
-              <div className="w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-[#F5A35B]/10 to-[#F5A35B]/20 rounded-full flex items-center justify-center border border-[#F5A35B]/30 group-hover:shadow-lg transition-all duration-300">
-                <div className="w-2 h-2 bg-[#F5A35B] rounded-full"></div>
-              </div>
-              <h4 className="text-xl font-serif text-white mb-4 font-light">Horas de gestión manual</h4>
-              <p className="text-white/70 leading-relaxed font-light text-base">
-                que su equipo pierde en tareas que nuestra plataforma automatiza en segundos.
-              </p>
-            </div>
-          </div>
-
-          {/* Solution Section */}
-          <div className="mt-20 text-center">
-            <div className="w-16 h-px bg-[#F5A35B] mx-auto mb-8"></div>
-            <div className="max-w-4xl mx-auto">
-              <h3 className="font-serif text-3xl md:text-4xl text-white mb-8 font-light tracking-tight">
-                <span className="text-[#F5A35B]">Nuestra Solución:</span> Privia: El Control que Exige, la Experiencia que Merecen.
-              </h3>
-              <p className="text-white/70 text-lg md:text-xl leading-relaxed font-light">
-                Creamos una plataforma centralizada que se amolda a las reglas de su comunidad. Eliminamos la fricción para residentes y optimizamos cada proceso para su staff, reforzando la seguridad y el prestigio que los define.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Invisible Excellence Section */}
-      <section className="py-32 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden">
-        {/* Subtle pattern overlay */}
-        <div className="absolute inset-0 opacity-[0.03]">
-          <div className="absolute top-0 left-0 w-full h-full" style={{
-            backgroundImage: `radial-gradient(circle at 50% 50%, #F5A35B 1px, transparent 1px)`,
-            backgroundSize: '60px 60px'
-          }}></div>
-        </div>
-        
-        <div className="max-w-6xl mx-auto px-4 relative">
-          <div className="text-center mb-20">
-            <div className="w-16 h-px bg-[#F5A35B] mx-auto mb-8"></div>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-slate-900 mb-8 font-light tracking-tight">
-              Nuestros Principios No Son Negociables
-            </h2>
-            <p className="text-slate-600 text-xl md:text-2xl font-light leading-relaxed max-w-4xl mx-auto">
-              La tecnología más sofisticada es aquella que nunca se nota. Experiencias perfectas que fluyen sin esfuerzo.
+            <p className="mt-6 text-lg text-white/70 sm:text-xl">
+              Guarding is your largest operating expense, yet the current model
+              is broken—and getting more expensive every quarter.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-            {/* Mobility Excellence */}
-            <div className="group relative">
-              <div className="bg-gradient-to-br from-slate-100 to-white p-8 lg:p-10 h-full hover:shadow-lg transition-all duration-500 relative overflow-hidden border border-slate-200/50">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#F5A35B]/10 to-transparent rounded-bl-full"></div>
-                <div className="relative">
-                  <div className="w-3 h-3 bg-[#F5A35B] rounded-full mb-8"></div>
-                  <h3 className="text-2xl font-serif text-slate-800 mb-6 font-light">Adaptabilidad Absoluta, No Configuración.</h3>
-                  <p className="text-slate-600 leading-relaxed font-light text-lg mb-6">
-                   Los sistemas comunes le dan una lista de opciones. Nosotros le damos el control. Nuestra plataforma está construida sobre un motor de reglas flexible. Esto significa que configuramos el sistema para que ejecute sus procesos operativos exactamente como usted los definió. La tecnología se adapta a sus reglas, no al revés."
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Access Excellence */}
-            <div className="group relative">
-              <div className="bg-gradient-to-br from-slate-100 to-white p-8 lg:p-10 h-full hover:shadow-lg transition-all duration-500 relative overflow-hidden border border-slate-200/50">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#1F2029]/10 to-transparent rounded-bl-full"></div>
-                <div className="relative">
-                  <div className="w-3 h-3 bg-[#1F2029] rounded-full mb-8"></div>
-                  <h3 className="text-2xl font-serif text-slate-800 mb-6 font-light">Diseño Obsesivo, No Funcionalidad.</h3>
-                  <p className="text-slate-600 leading-relaxed font-light text-lg mb-6">
-                    Cada interacción está diseñada con la elegancia y simplicidad que sus residentes esperan en cada rincón de la comunidad. Una experiencia intuitiva que se siente como una extensión natural de su marca.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Experience Excellence */}
-            <div className="group relative md:col-span-2 lg:col-span-1">
-              <div className="bg-gradient-to-br from-slate-100 to-white p-8 lg:p-10 h-full hover:shadow-lg transition-all duration-500 relative overflow-hidden border border-slate-200/50">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#F5A35B]/5 to-transparent rounded-bl-full"></div>
-                <div className="relative">
-                  <div className="w-3 h-3 bg-[#F5A35B] rounded-full mb-8"></div>
-                  <h3 className="text-2xl font-serif text-slate-800 mb-6 font-light"> Alianza Estratégica, no "Soporte Técnico".</h3>
-                  <p className="text-slate-600 leading-relaxed font-light text-lg mb-6">
-                    Nuestros clientes no son un número de ticket. Asignamos un socio dedicado de Privia que entiende su operación y se anticipa a sus necesidades. Somos una extensión de su equipo, no un proveedor.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Selected by the Finest Section */}
-      {/* <section id="nosotros" className="py-32 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.02]">
-          <div className="absolute top-0 left-0 w-full h-full" style={{
-            backgroundImage: `linear-gradient(45deg, #d97706 25%, transparent 25%), linear-gradient(-45deg, #d97706 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #d97706 75%), linear-gradient(-45deg, transparent 75%, #d97706 75%)`,
-            backgroundSize: '30px 30px',
-            backgroundPosition: '0 0, 0 15px, 15px -15px, -15px 0px'
-          }}></div>
-        </div>
-        
-        <div className="max-w-6xl mx-auto px-4 relative">
-          <div className="text-center mb-20">
-            <div className="w-16 h-px bg-[#F5A35B] mx-auto mb-8"></div>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-slate-900 mb-8 font-light tracking-tight">
-              Seleccionado por los mejores
-            </h2>
-            <p className="text-slate-600 text-xl md:text-2xl font-light leading-relaxed max-w-4xl mx-auto">
-              Comunidades que no aceptan menos que la perfección eligen Privia como su sistema operativo invisible.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
-            <div className="space-y-8">
-              <div className="relative">
-                <div className="absolute -left-6 top-0 w-1 h-20 bg-[#F5A35B]"></div>
-                <h3 className="text-3xl font-serif text-slate-800 mb-6 font-light">Criterio de selección</h3>
-                <p className="text-slate-600 text-lg leading-relaxed font-light mb-6">
-                  No trabajamos con cualquier comunidad. Seleccionamos aquellas que comparten nuestra visión 
-                  de excelencia invisible y experiencias sin concesiones.
-                </p>
-                <div className="text-slate-500 font-light italic">
-                  "Donde la exclusividad encuentra la innovación"
-                </div>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="bg-gradient-to-br from-slate-100 to-white p-12 border border-slate-200/50 relative overflow-hidden shadow-sm">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#F5A35B]/10 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#F5A35B]/5 to-transparent"></div>
-                <div className="relative">
-                  <div className="text-center space-y-8">
-                    <div className="w-4 h-4 bg-[#F5A35B] rounded-full mx-auto"></div>
-                    <div>
-                      <div className="text-4xl font-serif text-slate-800 font-light mb-2">Exclusividad</div>
-                      <div className="text-slate-600 text-lg">por invitación únicamente</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center group">
-              <div className="w-24 h-24 mx-auto mb-8 bg-gradient-to-br from-[#F5A35B]/10 to-white border border-[#F5A35B]/20 flex items-center justify-center group-hover:shadow-lg transition-all duration-300 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#F5A35B]/5 to-transparent"></div>
-                <div className="w-1 h-8 bg-[#F5A35B]"></div>
-              </div>
-              <h4 className="text-xl font-serif text-slate-800 mb-4 font-light">Residentes distinguidos</h4>
-              <p className="text-slate-600 leading-relaxed font-light">
-                Comunidades habitadas por individuos que valoran la excelencia en cada aspecto de su vida.
-              </p>
-            </div>
-
-            <div className="text-center group">
-              <div className="w-24 h-24 mx-auto mb-8 bg-gradient-to-br from-[#F5A35B]/10 to-white border border-[#F5A35B]/20 flex items-center justify-center group-hover:shadow-lg transition-all duration-300 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#F5A35B]/5 to-transparent"></div>
-                <div className="w-1 h-8 bg-[#F5A35B]"></div>
-              </div>
-              <h4 className="text-xl font-serif text-slate-800 mb-4 font-light">Estándares sin concesiones</h4>
-              <p className="text-slate-600 leading-relaxed font-light">
-                Lugares donde el detalle importa y la mediocría simplemente no es una opción.
-              </p>
-            </div>
-
-            <div className="text-center group">
-              <div className="w-24 h-24 mx-auto mb-8 bg-gradient-to-br from-[#F5A35B]/10 to-white border border-[#F5A35B]/20 flex items-center justify-center group-hover:shadow-lg transition-all duration-300 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#F5A35B]/5 to-transparent"></div>
-                <div className="w-1 h-8 bg-[#F5A35B]"></div>
-              </div>
-              <h4 className="text-xl font-serif text-slate-800 mb-4 font-light">Visión compartida</h4>
-              <p className="text-slate-600 leading-relaxed font-light">
-                Administraciones que entienden que la tecnología debe elevar, no complicar.
-              </p>
-            </div>
-          </div>
-
-          <div className="text-center mt-20">
-            <div className="w-12 h-px bg-[#F5A35B] mx-auto mb-8"></div>
-            <p className="text-slate-700 text-xl font-light italic leading-relaxed max-w-2xl mx-auto">
-              "Si su comunidad cumple con nuestros estándares de excelencia, nos gustaría conocerla."
-            </p>
-          </div>
-        </div>
-      </section> */}
-
-      {/* Selective Partnership Section */}
-      <section className="py-32 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
-        {/* Animated background elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-[#F5A35B]/30 rounded-full animate-pulse"></div>
-          <div className="absolute top-3/4 right-1/3 w-1 h-1 bg-[#1F2029]/40 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
-          <div className="absolute bottom-1/4 left-1/2 w-1.5 h-1.5 bg-[#F5A35B]/20 rounded-full animate-pulse" style={{animationDelay: '2s'}}></div>
-        </div>
-        
-        <div className="max-w-5xl mx-auto px-4 relative">
-          {/* Section Header */}
-          <div className="text-center mb-20">
-            <div className="w-16 h-px bg-[#F5A35B] mx-auto mb-8"></div>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white mb-8 font-light tracking-tight">
-              No somos para todos.
-            </h2>
-            <p className="text-white/70 text-lg md:text-2xl font-light leading-relaxed max-w-4xl mx-auto mb-12">
-              Seleccionamos a las comunidades con las que nos asociamos. Buscamos administraciones con una visión a largo plazo, que entiendan que la tecnología no es un costo, sino una inversión estratégica en la experiencia del residente y el valor de la propiedad.
-            </p>
-          </div>
-
-          {/* Call to Action */}
-          <div className="text-center mb-16">
-            <div className="max-w-4xl mx-auto">
-              <div className="flex items-center justify-center mb-8">
-                <div className="w-2 h-2 bg-[#F5A35B] rounded-full opacity-40"></div>
-                <div className="w-16 h-px bg-[#F5A35B] opacity-30 mx-4"></div>
-                <div className="w-2 h-2 bg-[#F5A35B] rounded-full opacity-40"></div>
-              </div>
-              <p className="text-white/70 text-xl md:text-2xl font-light leading-relaxed mb-12 italic">
-                "Si su comunidad comparte nuestra obsesión por la excelencia, nos gustaría iniciar una conversación."
-              </p>
-              
-              <div className="flex justify-center">
-                <Button
-                  className="bg-transparent border border-[#F5A35B] text-[#F5A35B] hover:bg-[#F5A35B] hover:text-white px-12 py-4 text-base font-light tracking-[0.2em] transition-all duration-300 rounded-none uppercase"
+          <div className="mt-16 grid gap-10 lg:grid-cols-[1.1fr_1fr]">
+            <div className="space-y-6">
+              {painPoints.map((pain) => (
+                <div
+                  key={pain.title}
+                  className="animate-on-scroll rounded-2xl border border-white/5 bg-[#070f1f]/80 p-6 backdrop-blur-xl"
                 >
-                  Agendar una Consulta Privada
-                </Button>
-              </div>
+                  <h3 className="text-xl font-semibold text-white">
+                    {pain.title}
+                  </h3>
+                  <p className="mt-3 text-sm text-white/70">
+                    {pain.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="animate-on-scroll rounded-3xl border border-[#2CF5FF]/20 bg-gradient-to-br from-[#071029] via-[#050d1f] to-[#040a18] p-10 backdrop-blur-xl">
+              <span className="text-xs uppercase tracking-[0.3em] text-[#2CF5FF]">
+                The Privia Response
+              </span>
+              <h3 className="mt-6 font-serif text-3xl text-white">
+                An intelligent filter that makes every guard post count
+              </h3>
+              <p className="mt-4 text-base text-white/70">
+                Privia plugs into the cameras you already rely on and becomes the signal processor your guards never
+                had. We surface real threats instantly and give you the operational intelligence to{" "}
+                redeploy coverage with confidence.
+              </p>
+              <ul className="mt-8 space-y-4 text-sm text-white/75">
+                {solutionHighlights.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-[#2CF5FF]" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Partnership Bridge */}
-      <div className="relative h-32 bg-gradient-to-b from-slate-900 via-slate-700 to-slate-50 overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="flex items-center space-x-4">
-            <div className="w-12 h-px bg-[#F5A35B] opacity-60"></div>
-            <div className="w-3 h-3 bg-[#F5A35B] rounded-full opacity-80"></div>
-            <div className="w-12 h-px bg-[#F5A35B] opacity-60"></div>
-          </div>
-        </div>
-        {/* Subtle connecting text */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <p className="text-white/40 text-sm font-light italic mt-8">
-            Para comunidades que merecen lo extraordinario
-          </p>
-        </div>
-      </div>
-
-      {/* Beyond Expectations Section */}
-      <section className="py-32 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden">
-        {/* Subtle pattern overlay */}
-        <div className="absolute inset-0 opacity-[0.03]">
-          <div className="absolute top-0 left-0 w-full h-full" style={{
-            backgroundImage: `radial-gradient(circle at 50% 50%, #F5A35B 1px, transparent 1px)`,
-            backgroundSize: '60px 60px'
-          }}></div>
-        </div>
-        
-        <div className="max-w-5xl mx-auto px-4 relative">
-          <div className="text-center mb-20">
-            {/* Echoing the partnership theme with subtle connecting elements */}
-            <div className="flex items-center justify-center mb-8">
-              <div className="w-6 h-px bg-[#F5A35B] opacity-40"></div>
-              <div className="w-16 h-px bg-[#F5A35B] mx-2"></div>
-              <div className="w-6 h-px bg-[#F5A35B] opacity-40"></div>
-            </div>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-slate-900 mb-8 font-light tracking-tight">
-              Un sistema operativo a la altura de su comunidad.
+      <section
+        id="how-it-works"
+        className="relative overflow-hidden bg-[#020510] py-28"
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(109,89,255,0.22),transparent_60%)] opacity-70" />
+        <div className="absolute -top-16 left-2/3 h-72 w-72 rounded-full bg-[#2CF5FF]/20 blur-3xl" />
+        <div className="relative mx-auto max-w-6xl px-4">
+          <div className="animate-on-scroll text-center">
+            <span className="text-xs uppercase tracking-[0.3em] text-[#2CF5FF]">
+              Seamless Workflow
+            </span>
+            <h2 className="mt-6 font-serif text-4xl text-white md:text-5xl">
+              Connect. Analyze. Alert.
             </h2>
-            <p className="text-slate-600 text-xl md:text-2xl font-light leading-relaxed max-w-4xl mx-auto">
-              Así es como exploramos una posible alianza:
+            <p className="mt-4 text-lg text-white/70 sm:text-xl">
+              Privia coexists with your infrastructure and supercharges your
+              guard operations from day one.
             </p>
           </div>
 
-          {/* Process Steps */}
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="text-center space-y-6">
-              <div className="w-16 h-16 mx-auto bg-gradient-to-br from-[#F5A35B]/10 to-[#F5A35B]/20 border border-[#F5A35B]/30 flex items-center justify-center shadow-sm">
-                <div className="w-2 h-2 bg-[#F5A35B] rounded-full"></div>
+          <div className="mt-16 grid gap-8 md:grid-cols-3">
+            {howItWorksSteps.map((step) => (
+              <div
+                key={step.step}
+                className="animate-on-scroll group relative overflow-hidden rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:border-[#2CF5FF]/50 hover:bg-[#2CF5FF]/5"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#2CF5FF]/40 bg-[#2CF5FF]/10 text-lg font-semibold text-[#2CF5FF]">
+                  {step.step}
+                </div>
+                <h3 className="mt-6 text-2xl font-semibold text-white">
+                  {step.title}
+                </h3>
+                <p className="mt-4 text-sm text-white/70">{step.description}</p>
               </div>
-              <div>
-                <h5 className="text-lg font-serif text-slate-800 font-light mb-3">Conversación Estratégica (15 min)</h5>
-                <p className="text-slate-600 text-sm font-light">Una llamada para entender sus desafíos operativos, sus reglas únicas y sus objetivos a largo plazo.</p>
-              </div>
-            </div>
-
-            <div className="text-center space-y-6">
-             <div className="w-16 h-16 mx-auto bg-gradient-to-br from-[#F5A35B]/10 to-[#F5A35B]/20 border border-[#F5A35B]/30 flex items-center justify-center shadow-sm">
-                <div className="w-2 h-2 bg-[#F5A35B] rounded-full"></div>
-              </div>
-              <div>
-                <h5 className="text-lg font-serif text-slate-800 font-light mb-3">Taller de Solución a Medida</h5>
-                <p className="text-slate-600 text-sm font-light">Un recorrido interactivo donde le mostramos exactamente cómo Privia se adaptaría a sus procesos, no una demo genérica.</p>
-              </div>
-            </div>
-
-            <div className="text-center space-y-6">
-              <div className="w-16 h-16 mx-auto bg-gradient-to-br from-[#F5A35B]/10 to-[#F5A35B]/20 border border-[#F5A35B]/30 flex items-center justify-center shadow-sm">
-                <div className="w-2 h-2 bg-[#F5A35B] rounded-full"></div>
-              </div>
-              <div>
-                <h5 className="text-lg font-serif text-slate-800 font-light mb-3">Propuesta de Alianza</h5>
-                <p className="text-slate-600 text-sm font-light">Recibirá un plan claro y transparente para implementar Privia como el sistema operativo de su comunidad.</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer id="contacto" className="bg-gradient-to-br from-slate-900 to-blue-900 py-20 relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-32 h-32 border border-[#F5A35B]/20 rounded-full"></div>
-          <div className="absolute bottom-10 right-10 w-48 h-48 border border-cyan-400/20 rounded-full"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-white/10 rounded-full"></div>
+      <section
+        id="benefits"
+        className="relative overflow-hidden bg-[#040a18] py-28 text-white"
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(44,245,255,0.16),transparent_60%),radial-gradient(circle_at_80%_30%,rgba(109,89,255,0.14),transparent_55%)]" />
+        <div className="relative mx-auto max-w-6xl px-4">
+          <div className="animate-on-scroll text-center">
+            <h2 className="font-serif text-4xl md:text-5xl">
+              Features Built for Operational ROI
+            </h2>
+            <p className="mt-4 text-lg text-white/70 sm:text-xl">
+              Translate technical capability into measurable savings, sharper
+              coverage, and confident reporting.
+            </p>
+          </div>
+
+          <div className="mt-16 grid gap-8 md:grid-cols-2">
+            {benefitCards.map((benefit) => (
+              <div
+                key={benefit.title}
+                className="animate-on-scroll rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:border-[#2CF5FF]/40 hover:bg-[#2CF5FF]/5"
+              >
+                <h3 className="text-2xl font-semibold text-white">
+                  {benefit.title}
+                </h3>
+                <p className="mt-4 text-sm text-white/70">
+                  {benefit.description}
+                </p>
+                <div className="mt-6 inline-flex items-center rounded-full border border-[#2CF5FF]/40 bg-[#2CF5FF]/10 px-4 py-2 text-xs uppercase tracking-[0.28em] text-[#2CF5FF]">
+                  {benefit.meta}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="cta"
+        className="relative overflow-hidden bg-gradient-to-b from-[#040a18] via-[#020510] to-[#010308] py-28"
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(44,245,255,0.12),transparent_60%)]" />
+        <div className="absolute left-10 top-10 h-40 w-40 rounded-full border border-[#2CF5FF]/30" />
+        <div className="absolute bottom-12 right-12 h-52 w-52 rounded-full border border-[#6D59FF]/25" />
+        <div className="relative mx-auto max-w-4xl px-4 text-center text-white">
+          <span className="animate-on-scroll text-xs uppercase tracking-[0.3em] text-[#2CF5FF]">
+            Take the Next Step
+          </span>
+          <h2 className="animate-on-scroll mt-6 font-serif text-4xl sm:text-5xl">
+            Ready to see how much waste Privia can remove?
+          </h2>
+          <p className="animate-on-scroll mt-4 text-lg text-white/70">
+            Request your tailored cost-savings plan and put your guards back on
+            offense. We will model your current staffing, alarm load, and risk
+            posture to uncover the fastest path to ROI.
+          </p>
+
+          {!isSubmitted ? (
+            <div className="animate-on-scroll mt-10 flex flex-col items-center gap-6 sm:flex-row sm:justify-center">
+              <Button
+                onClick={handleAssessmentRequest}
+                className="rounded-full bg-[#2CF5FF] px-10 py-4 text-xs font-semibold uppercase tracking-[0.28em] text-slate-900 transition duration-300 hover:-translate-y-0.5 hover:bg-[#7bfaff]"
+              >
+                Request Cost-Savings Plan
+              </Button>
+              <p className="text-sm text-white/60">
+                A Privia specialist will connect within 24 hours.
+              </p>
+            </div>
+          ) : (
+            <div className="animate-on-scroll mt-12 rounded-3xl border border-[#2CF5FF]/30 bg-[#041023]/80 p-10 backdrop-blur-xl">
+              <h3 className="font-serif text-2xl text-[#2CF5FF]">
+                Thank you — we&apos;re on it.
+              </h3>
+              <p className="mt-4 text-sm text-white/70">
+                A Privia specialist will reach out within the next 24 hours with
+                a tailored ROI walkthrough for your community. We look forward to
+                helping you reclaim your security budget.
+              </p>
+            </div>
+          )}
+        </div>
+      </section>
+
+      <footer className="relative overflow-hidden bg-[#010308] py-16 text-white/70">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute left-8 top-8 h-24 w-24 border border-[#2CF5FF]/30 rounded-full" />
+          <div className="absolute bottom-6 right-10 h-32 w-32 border border-[#6D59FF]/25 rounded-full" />
+          <div className="absolute left-1/2 top-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 border border-white/10 rounded-full" />
         </div>
 
-        <div className="max-w-6xl mx-auto px-4 relative z-10">
-          <div className="grid md:grid-cols-4 gap-12 mb-16">
-            {/* Company Info */}
+        <div className="relative mx-auto max-w-6xl px-4">
+          <div className="grid gap-10 md:grid-cols-4">
             <div className="md:col-span-2">
-              <div className="flex items-center space-x-4 mb-6">
-                <img 
-                  src="/images/PriviaIndividualFinal.svg" 
-                  alt="Privia - Tecnología Premium para Country Clubs y Barrios Privados" 
-                  className="w-12 h-12 filter drop-shadow-lg"
+              <div className="flex items-center gap-3">
+                <img
+                  src="/images/PriviaIndividualFinal.svg"
+                  alt="Privia logo"
+                  className="h-10 w-10 drop-shadow-[0_0_12px_rgba(44,245,255,0.45)]"
                 />
-                <span className="font-serif text-3xl text-white font-light">Privia</span>
+                <span className="font-serif text-2xl tracking-[0.2em] text-white">
+                  Privia
+                </span>
               </div>
-              <div className="flex space-x-4">
-                <div className="w-10 h-10 rounded-full bg-[#F5A35B]/20 flex items-center justify-center hover:bg-[#F5A35B]/30 transition-colors cursor-pointer">
-                  <svg className="w-5 h-5 text-[#F5A35B]" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                  </svg>
-                </div>
-                <div className="w-10 h-10 rounded-full bg-[#F5A35B]/20 flex items-center justify-center hover:bg-[#F5A35B]/30 transition-colors cursor-pointer">
-                  <svg className="w-5 h-5 text-[#F5A35B]" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                  </svg>
-                </div>
-              </div>
+              <p className="mt-6 max-w-sm text-sm text-white/60">
+                AI-powered verification that keeps premium communities safer
+                while protecting the guard teams that residents already trust.
+              </p>
             </div>
 
-            {/* Quick Links */}
             <div>
-              <h4 className="text-white font-medium text-lg mb-6">Enlaces</h4>
-              <ul className="space-y-3">
-                <li><a href="#inicio" className="text-white/70 hover:text-[#F5A35B] transition-colors">Inicio</a></li>
-                <li><a href="#servicios" className="text-white/70 hover:text-[#F5A35B] transition-colors">Servicios</a></li>
-                <li><a href="#nosotros" className="text-white/70 hover:text-[#F5A35B] transition-colors">Nosotros</a></li>
-                <li><a href="#contacto" className="text-white/70 hover:text-[#F5A35B] transition-colors">Contacto</a></li>
+              <h4 className="text-sm font-semibold uppercase tracking-[0.3em] text-white">
+                Navigation
+              </h4>
+              <ul className="mt-4 space-y-3 text-sm">
+                <li>
+                  <a
+                    className="transition-colors hover:text-[#2CF5FF]"
+                    href="#hero"
+                  >
+                    Overview
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="transition-colors hover:text-[#2CF5FF]"
+                    href="#problem-solution"
+                  >
+                    The Cost Problem
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="transition-colors hover:text-[#2CF5FF]"
+                    href="#how-it-works"
+                  >
+                    How It Works
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="transition-colors hover:text-[#2CF5FF]"
+                    href="#benefits"
+                  >
+                    Benefits
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="transition-colors hover:text-[#2CF5FF]"
+                    href="#cta"
+                  >
+                    ROI Assessment
+                  </a>
+                </li>
               </ul>
             </div>
 
-            {/* Contact Info */}
             <div>
-              <h4 className="text-white font-medium text-lg mb-6">Contacto</h4>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <svg className="w-5 h-5 text-[#F5A35B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                  </svg>
-                  <span className="text-white/70 text-sm">info@privia.com</span>
-                </div>
-             
-              </div>
+              <h4 className="text-sm font-semibold uppercase tracking-[0.3em] text-white">
+                Contact
+              </h4>
+              <ul className="mt-4 space-y-3 text-sm">
+                <li>
+                  <span className="text-white/60">info@privia.com</span>
+                </li>
+                <li>
+                  <span className="text-white/60">+1 (305) 555-0173</span>
+                </li>
+              </ul>
             </div>
           </div>
-          
-          <div className="pt-8 border-t border-white/20">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-white/50 text-sm mb-4 md:mb-0">
-                © {new Date().getFullYear()} Privia. Todos los derechos reservados.
-              </p>
-              <div className="flex space-x-6 text-sm">
-                <a href="#" className="text-white/50 hover:text-[#F5A35B] transition-colors">Privacidad</a>
-                <a href="#" className="text-white/50 hover:text-[#F5A35B] transition-colors">Términos</a>
-                <a href="#" className="text-white/50 hover:text-[#F5A35B] transition-colors">Cookies</a>
-              </div>
+
+          <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-white/50 md:flex-row">
+            <p>© {new Date().getFullYear()} Privia. All rights reserved.</p>
+            <div className="flex gap-6">
+              <a className="transition-colors hover:text-[#2CF5FF]" href="#">
+                Privacy
+              </a>
+              <a className="transition-colors hover:text-[#2CF5FF]" href="#">
+                Terms
+              </a>
+              <a className="transition-colors hover:text-[#2CF5FF]" href="#">
+                Cookies
+              </a>
             </div>
           </div>
         </div>
